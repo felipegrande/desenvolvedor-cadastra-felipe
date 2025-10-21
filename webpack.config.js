@@ -1,7 +1,11 @@
 const path = require("path");
-const webpack = require("webpack");
 
-module.exports = (paths) => ({
+const paths = {
+  scripts: { src: "./src/index.tsx" },
+  dest: "./dist"
+};
+
+module.exports = {
   entry: {
     main: path.resolve(__dirname, paths.scripts.src),
   },
@@ -10,6 +14,9 @@ module.exports = (paths) => ({
     filename: "bundle.js",
   },
   mode: "development",
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".jsx"], 
+  },
   module: {
     rules: [
       {
@@ -21,4 +28,4 @@ module.exports = (paths) => ({
     ],
   },
   plugins: [],
-});
+};

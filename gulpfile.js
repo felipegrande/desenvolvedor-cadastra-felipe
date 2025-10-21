@@ -12,8 +12,8 @@ const webpackConfig = require("./webpack.config.js");
 
 const paths = {
   scripts: {
-    src: "src/ts/index.ts",
-    watch: "src/ts/**/*.ts",
+    src: "src/ts/index.tsx",
+    watch: "src/**/*.{ts,tsx}",
   },
   styles: {
     src: "src/scss/main.scss",
@@ -56,7 +56,7 @@ function styles() {
 
 function scripts() {
   return new Promise((resolve) =>
-    webpack(webpackConfig(paths), (err, stats) => {
+    webpack(webpackConfig  , (err, stats) => {
       if (err) console.log("Webpack", err);
 
       console.log(
@@ -88,10 +88,10 @@ function img() {
 
 const build = series(clean, parallel(styles, scripts, html, img));
 const dev = () => {
-  watch(paths.scripts.watch, { ignoreInitial: false }, scripts).on(
-    "change",
-    browserSync.reload
-  );
+  watch(paths.scripts.watch, { ignoreInitial: false }, series(scripts, (done) => {
+  browserSync.reload();
+  done();
+}));
   watch(paths.styles.src, { ignoreInitial: false }, styles);
   watch(paths.img.src, { ignoreInitial: false }, img);
   watch(paths.html.src, { ignoreInitial: false }, html).on(
