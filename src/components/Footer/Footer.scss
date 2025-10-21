@@ -1,0 +1,14 @@
+@import "../../scss/variable";
+
+.footer{
+  background-color: $black-color;
+  height: 33px;
+  @include flex-center(row, center, center); 
+
+  p{
+    margin: 0;
+    @include text(14px, 400, 1, $white-color);
+    text-transform: uppercase;
+    letter-spacing: 5%;
+  }
+}

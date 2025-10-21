@@ -1,0 +1,26 @@
+// Cores
+$primary-color: #FB953E;
+$gray-color1: rgba(0, 0, 0, 0.5);
+$gray-color2: #666666;
+$black-color: #000000;
+$white-color: #ffffff;
+
+// Fonte
+$font-family-base: 'Open Sans';
+$base-font-size: 16px;
+
+//mixin
+
+@mixin flex-center($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin text($size: 14px, $weight: 400, $lineHeight: 1.5, $color: $black-color) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $lineHeight;
+  color: $color;
+}

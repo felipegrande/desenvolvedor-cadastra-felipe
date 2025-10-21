@@ -1,0 +1,25 @@
+@import "../../scss/variable";
+
+.header {
+  width: 100%;
+  border-bottom: 2px solid #c6c6c6; 
+  height: 62px;
+
+  &__content {
+    @include flex-center(row, space-between, center); 
+    max-width: 1177px; 
+    margin: 0 auto;   
+    padding:  0 35px ;    
+    height: 100%;
+  }
+
+  img {
+    object-fit: contain;
+  }
+   @media (min-width: 1024px) {
+    &__content {
+      padding: 0;   
+    }
+  }
+}
+
