@@ -1,0 +1,69 @@
+@import "../../scss/variable";
+
+.cart {
+  width: 162px;
+  height: 357px;
+  border: 1px solid transparent;
+  @include flex-center(column, space-between, center);
+
+  &__image {
+    width: 100%;
+    height: auto;
+    min-height: 240px;
+    object-fit: contain;
+
+    @media (min-width: 768px) {
+      min-height: 289px;
+    }
+  }
+
+  &__name {
+    @include text(14px, 400, 1, 0, normal, $black-color);
+    text-transform: uppercase;
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  &__price {
+    @include text(16px, 700, 1, 0, bold, $black-color);
+    text-align: center;
+  }
+
+  &__installments {
+    @include text(16px, 400, 1, 5%, normal, $gray-color2);
+    text-align: center;
+  }
+
+  button {
+    background-color: $black-color;
+    width: 100%;
+    height: 35px;
+    border: none;
+    margin-top: 14px;
+    @include text(14px, 700, 1, 0, bold, $white-color);
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  &:hover {
+    border-color: $primary-color;
+  }
+
+  @media (min-width: 768px) {
+    width: 195px;
+    height: 426px;
+  }
+}
+
+.loader__buy {
+  @include flex-center(row, center, center);
+
+  &_circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid $gray-color2;
+    border-top-color: $primary-color;
+    animation: loader-circle 1s linear infinite;
+  }
+}

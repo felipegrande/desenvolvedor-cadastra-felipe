@@ -7,8 +7,7 @@
 
   p{
     margin: 0;
-    @include text(14px, 400, 1, $white-color);
+    @include text(14px, 400, 1,5%, normal, $white-color);
     text-transform: uppercase;
-    letter-spacing: 5%;
   }
 }

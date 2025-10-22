@@ -1,0 +1,230 @@
+    @import "../../scss/variable";
+
+    .search {
+      max-width: 1177px;
+      margin: 0 auto;
+      padding: 24px 16px;
+
+      &__topo {
+        @include flex-center(row, center, center);
+
+        &_title {
+          @include text(32px, 400, 1, 0, normal, #333333);
+        }
+
+        &_select {
+          height: 42px;
+          width: 142px;
+          @include text(16px, 400, 1, 0, normal, $black-color);
+          border: 1px solid rgba(0, 0, 0, 0.5);
+          padding: 0 10px;
+          appearance: none;
+          cursor: pointer;
+          display: none;
+          background-image: url("data:image/svg+xml;utf8,<svg width='142' height='42' viewBox='0 0 142 42' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M118 16L124 25L130 16.0093' stroke='%23666666' stroke-linecap='round'/></svg>");
+          background-repeat: no-repeat;
+          background-position: right 0 center;
+
+          &:focus {
+            outline: none;
+          }
+
+          @media (min-width: 768px) {
+            display: block;
+          }
+        }
+
+        @media(min-width:768px) {
+          @include flex-center(row, space-between, center);
+        }
+      }
+
+      &__mobile {
+        margin: 12px 0 0 0;
+        border: 1px solid $gray-color2;
+        @include flex-center(row, center, center);
+        width: 100%;
+
+        &_button {
+          flex-grow: 1;
+          width: 100%;
+          @include text(24px, 400, 1, 0, normal, $gray-color2);
+          @include flex-center(row, center, center);
+          height: 49px;
+
+          &.first {
+            border-right: 1px solid $gray-color2;
+          }
+        }
+
+        @media (min-width: 768px) {
+          display: none;
+        }
+      }
+
+      &__content {
+        @include flex-center(row, space-between, flex-start);
+        margin: 35px 0;
+
+        &_filter {
+          margin-right: 44px;
+          width: 157px;
+          display: none;
+
+          @media (min-width: 768px) {
+            display: block;
+          }
+        }
+
+        &_title {
+          @include text(16px, 400, 1, 5%, normal, rgba(51, 51, 51, 1));
+          text-transform: uppercase;
+          margin-bottom: 14px;
+        }
+
+        &_cor {
+          @include flex-center(column, center, flex-start);
+          margin-bottom: 24px;
+
+          &_grid {
+            @include flex-center(column, flex-start, flex-start);
+            gap: 10px;
+
+            label {
+              @include text(14px, 400, 1, 0, normal, $black-color);
+              cursor: pointer;
+              @include flex-center(center, center, center);
+            }
+
+            input {
+              margin-right: 10px;
+              cursor: pointer;
+              border: 1px solid #00000080;
+              width: 16px;
+              height: 16px;
+
+              &[type="checkbox"] {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                background-color: white;
+
+                &:checked {
+                  background-color: $primary-color;
+                  box-shadow: inset 0 0 0 2px white;
+                }
+              }
+            }
+          }
+
+          &_more {
+            @include text(12px, 400, 1, 0, normal, $gray-color2);
+            text-decoration: underline;
+            margin-top: 10px;
+            cursor: pointer;
+          }
+        }
+
+        &_size {
+          margin-bottom: 24px;
+
+          &_grid {
+            @include flex-center(row, flex, center);
+            flex-wrap: wrap;
+            gap: 8px;
+          }
+
+          &_item {
+            @include flex-center(row, center, center);
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            @include text(16px, 400, 1, 0, normal, rgba(0, 0, 0, 0.5));
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+
+            &:hover {
+              border-color: $primary-color;
+            }
+
+            &.selected {
+              color: $black-color;
+              border-color: $primary-color;
+            }
+          }
+        }
+
+        &_gridContent {
+          flex-grow: 1;
+          @include flex-center(row, center, center);
+
+          &_no-products {
+            @include text(16px, 600, 1, 0, normal, $black-color);
+          }
+
+          &_more {
+            border: 1px solid $black-color;
+            @include flex-center(row, center, center);
+            cursor: pointer;
+            background-color: $primary-color;
+            width: 175px;
+            height: 35px;
+            margin: 40px auto 0;
+
+            p{
+              @include text(14px, 700, 1, 0, normal, $white-color);
+              text-transform: uppercase;
+            }
+
+            @media (min-width: 768px) {
+             margin: 70px auto 0;
+          }
+
+            
+          }
+        }
+
+        &_grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 18px;
+
+          @media (min-width: 768px) {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+          }
+        }
+
+        @media (min-width: 768px) {
+          margin: 54px 0;
+        }
+      }
+
+      @media (min-width: 768px) {
+        padding: 40px 0;
+      }
+
+    }
+
+    .loader {
+      @include flex-center(row, center, center);
+      margin: 100px 0;
+    }
+
+    .loader-circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 10px solid $gray-color2;
+      border-top-color: $primary-color;
+      animation: loader-circle 1s linear infinite;
+    }
+
+    @keyframes loader-circle {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
